@@ -6,7 +6,7 @@ public function drawVM(name, x, y, w, h, intext, outtext) {
 	var re=10; nw=30; nh=10;
 	var nn = paper.rect(x,y,w,h,re);
 	nn.attr("fill", "#fff");
-	nn.attr("stroke", "#000");
+	nn.attr("stroke", "#030");
 	var nametext = paper.text(x+w/2, y+h-re-10, name);
 	vm.push(nn, nametext);
 	
