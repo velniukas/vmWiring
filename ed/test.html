@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>    
+	<title>vmWiring Editor Prototype</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=7">
+
+	<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/raphael-min.js"></script>
+    <script type="text/javascript" src="js/raphael.draggable.js"></script>
+	<script type="text/javascript" src="js/raphaelle.js"></script>
+	<script type="text/javascript" src="js/graffle.js"></script>
+	<script type="text/javascript" src="js/vmwiring.js"></script>
+
+    <style type="text/css" media="screen">
+         #holder {
+             -moz-border-radius: 10px;
+             -webkit-border-radius: 10px;
+             border: solid 1px #333;
+         }
+         p {
+             text-align: center;
+         }
+     </style>
+
+	<script type="text/javascript">
+		
+		window.onload = function() {
+		   
+			paper = Raphael("holder", 0,0,"100%","100%");					
+			paper.draggable.enable();
+			
+			var vm1 = drawVM("Tomcat", 80,40,80,100, 
+				["http", "https", "ssh", "rdp"], ["db", "log", "data", "config"]).drag(move, dragger, up);
+			var vm2 = drawVM("MySQL", 300,100,80,80, 
+				["webserver"], ["storage", "log"]).drag(move, dragger, up);
+
+			//connections.push(paper.connection(vm1, vm2, "#f57", "#fff|5"));
+		}
+	
+	</script>	
+	
+</head>
+<body>
+	<div id="holder" width="100%"></div>
+	<div id="copy">
+	</div>
+</body>
+</html>
+
